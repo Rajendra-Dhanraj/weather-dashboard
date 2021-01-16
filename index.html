@@ -23,7 +23,6 @@
     Weather Dashboard
   </header>
   <body>
-
     <main class="row container-fluid">
       <!--Search and History-->
       <section class="p-3 d-flex flex-column col-lg-3 col-12 bg-light border">
@@ -42,33 +41,33 @@
         </form>
       </section>
 
-      <!--City / 5 Day forecast-->
+      <!-- CURRENT CITY WEATHER -->
       <section class="col-9">
         <div class="border">
           <div class="row">
-            
-         <span><h2  class='col' id='cityNameDisplay'>Atlanta Date </h2> </span> 
-          <img id="currentIcon"/>
-
-        </div>
-          <p>Temperature:<span id='tempDisplay'></span></p>
+            <span><h2 class="col" id="cityNameDisplay">Atlanta Date</h2> </span>
+            <img id="currentIcon" />
+          </div>
+          <p>Temperature:<span id="tempDisplay"></span></p>
           <p>Humidity:<span id="humidityDisplay"></span></p>
           <p>Wind Speed:<span id="windDisplay"></span></p>
-          <p>UV Index:<span id="uvDisplay"></span></p>
-
-
+          <p>
+            UV Index:<span class="badge badge-danger" id="uvDisplay"></span>
+          </p>
         </div>
 
-
-        <div class="bg-warning">
+        <!-- 5 DAY FORECAST -->
+        <div>
           <h3>5-Day Forecast:</h3>
-          <div id ="cardContainer" class='row'>
-            
-          </div>
+          <div id="cardContainer" class="row"></div>
         </div>
       </section>
     </main>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"
+      integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ=="
+      crossorigin="anonymous"
+    ></script>
     <script src="./assets/js/script.js"></script>
   </body>
 </html>
