@@ -1,3 +1,5 @@
+var searchHistory = JSON.parse(localStorage.getItem("search")) || [];
+
 // var created to get city weather info
 var getCityWeather = function (cityname) {
   //format the open weather api url
@@ -56,8 +58,8 @@ var getCityWeather = function (cityname) {
             var targetData = data.daily[i];
 
             var cardDiv = document.createElement("div");
-            cardDiv.setAttribute("class", "card col");
 
+            cardDiv.classList = "bg-primary card text-white";
             var dateH5 = document.createElement("h5");
             // convert Epoch time to current x1000
             dateH5.textContent = moment(targetData.dt * 1000).format(
@@ -85,7 +87,6 @@ var getCityWeather = function (cityname) {
             cardDiv.append(humid);
             // append the whole div into the HTML
             document.getElementById("cardContainer").append(cardDiv);
-            // cardDiv.setAttribute("class", "bg-primary");
           }
         });
       });
@@ -104,8 +105,25 @@ var formSubmitHandler = function (event) {
   if (cityname) {
     getCityWeather(cityname);
     cityNameEl.value = "";
+
+    //Save City name to Local Storage
+    searchHistory.push(cityname);
+    localStorage.setItem("search", JSON.stringify(searchHistory));
+    displayHistory();
   } else {
     alert("Please enter a city");
+  }
+};
+
+//Display Search to History
+
+var sHistory = document.querySelector("#history");
+
+var displayHistory = function () {
+  for (var i = 0; i < searchHistory.length; i++) {
+    var btnEl = document.createElement("button");
+    btnEl.textContent = searchHistory[i];
+    sHistory.append(btnEl);
   }
 };
 
